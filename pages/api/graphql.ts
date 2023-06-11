@@ -22,7 +22,7 @@ plugins = [ApolloServerPluginLandingPageLocalDefault({ embed: true })];
 
 const server = async (): Promise<ApolloServer> => {
   const schema = await neoSchema.getSchema();
-  return new ApolloServer({ schema, plugins });
+  return new ApolloServer({ schema, plugins, introspection: true });
 };
 
 export default startServerAndCreateNextHandler(await server());
